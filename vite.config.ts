@@ -5,4 +5,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  resolve: {
+    // Prevent multiple React copies (fixes invalid hook call)
+    dedupe: ["react", "react-dom"],
+  },
 });
